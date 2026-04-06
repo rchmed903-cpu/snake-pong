@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="90" fill="#0d0d0d"/>
+  <rect width="512" height="512" rx="90" fill="none" stroke="#39ff14" stroke-width="8"/>
+  <rect x="30" y="30" width="452" height="452" rx="70" fill="#111"/>
+  <rect x="50" y="50" width="412" height="412" rx="52" fill="#0a0a0a"/>
+
+  <g stroke="#39ff1415" stroke-width="1">
+    <line x1="50" y1="82" x2="462" y2="82"/><line x1="50" y1="114" x2="462" y2="114"/>
+    <line x1="50" y1="146" x2="462" y2="146"/><line x1="50" y1="178" x2="462" y2="178"/>
+    <line x1="50" y1="210" x2="462" y2="210"/><line x1="50" y1="242" x2="462" y2="242"/>
+    <line x1="50" y1="274" x2="462" y2="274"/><line x1="50" y1="306" x2="462" y2="306"/>
+    <line x1="50" y1="338" x2="462" y2="338"/><line x1="50" y1="370" x2="462" y2="370"/>
+    <line x1="50" y1="402" x2="462" y2="402"/><line x1="50" y1="434" x2="462" y2="434"/>
+    <line x1="82" y1="50" x2="82" y2="462"/><line x1="114" y1="50" x2="114" y2="462"/>
+    <line x1="146" y1="50" x2="146" y2="462"/><line x1="178" y1="50" x2="178" y2="462"/>
+    <line x1="210" y1="50" x2="210" y2="462"/><line x1="242" y1="50" x2="242" y2="462"/>
+    <line x1="274" y1="50" x2="274" y2="462"/><line x1="306" y1="50" x2="306" y2="462"/>
+    <line x1="338" y1="50" x2="338" y2="462"/><line x1="370" y1="50" x2="370" y2="462"/>
+    <line x1="402" y1="50" x2="402" y2="462"/><line x1="434" y1="50" x2="434" y2="462"/>
+  </g>
+
+  <!-- snake row 1 right -->
+  <rect x="82" y="130" width="28" height="28" rx="4" fill="#39ff14"/>
+  <rect x="114" y="130" width="28" height="28" rx="4" fill="#39ff14"/>
+  <rect x="146" y="130" width="28" height="28" rx="4" fill="#39ff14"/>
+  <rect x="178" y="130" width="28" height="28" rx="4" fill="#39ff14"/>
+  <rect x="210" y="130" width="28" height="28" rx="4" fill="#39ff14"/>
+  <rect x="242" y="130" width="28" height="28" rx="4" fill="#39ff14"/>
+  <!-- turn down -->
+  <rect x="242" y="162" width="28" height="28" rx="4" fill="#33e812"/>
+  <rect x="242" y="194" width="28" height="28" rx="4" fill="#2ed410"/>
+  <!-- row 2 left -->
+  <rect x="210" y="194" width="28" height="28" rx="4" fill="#29c00e"/>
+  <rect x="178" y="194" width="28" height="28" rx="4" fill="#24ac0c"/>
+  <rect x="146" y="194" width="28" height="28" rx="4" fill="#1f980a"/>
+  <rect x="114" y="194" width="28" height="28" rx="4" fill="#1a8408"/>
+  <rect x="82" y="194" width="28" height="28" rx="4" fill="#157006"/>
+  <!-- turn down -->
+  <rect x="82" y="226" width="28" height="28" rx="4" fill="#125c05"/>
+  <rect x="82" y="258" width="28" height="28" rx="4" fill="#0f4804"/>
+  <!-- row 3 right -->
+  <rect x="114" y="258" width="28" height="28" rx="4" fill="#0d3e03"/>
+  <rect x="146" y="258" width="28" height="28" rx="4" fill="#0b3403"/>
+  <rect x="178" y="258" width="28" height="28" rx="4" fill="#092a02"/>
+  <!-- head white -->
+  <rect x="210" y="258" width="28" height="28" rx="4" fill="#ffffff"/>
+  <circle cx="220" cy="267" r="3.5" fill="#0a0a0a"/>
+  <circle cx="232" cy="267" r="3.5" fill="#0a0a0a"/>
+  <circle cx="221" cy="268" r="1" fill="#fff"/>
+  <circle cx="233" cy="268" r="1" fill="#fff"/>
+
+  <!-- food -->
+  <rect x="370" y="354" width="28" height="28" rx="4" fill="#ff6b35"/>
+  <rect x="366" y="350" width="36" height="36" rx="7" fill="none" stroke="#ff6b3544" stroke-width="3"/>
+
+  <!-- title -->
+  <text x="256" y="430" text-anchor="middle" font-family="'Courier New', monospace" font-size="38" font-weight="700" fill="#39ff14" letter-spacing="5">SNAKE</text>
+  <text x="256" y="472" text-anchor="middle" font-family="'Courier New', monospace" font-size="38" font-weight="700" fill="#ffffff" letter-spacing="8">PONG</text>
+</svg>
