@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake Pong | rch519</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#39ff14">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Snake Pong">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen">
+        <canvas id="splash-canvas"></canvas>
+        <div id="splash-content">
+            <div id="splash-title">
+                <span class="s-letter">S</span>
+                <span class="s-letter">N</span>
+                <span class="s-letter">A</span>
+                <span class="s-letter">K</span>
+                <span class="s-letter">E</span>
+            </div>
+            <div id="splash-title2">
+                <span class="s-letter2">P</span>
+                <span class="s-letter2">O</span>
+                <span class="s-letter2">N</span>
+                <span class="s-letter2">G</span>
+            </div>
+            <div id="splash-bar-wrap">
+                <div id="splash-bar"></div>
+            </div>
+            <div id="splash-status">Initializing...</div>
+            <div id="splash-sig">made by rch519</div>
+        </div>
+    </div>
+
+    <!-- MAIN MENU SCREEN -->
+    <div id="main-menu">
+        <canvas id="menu-canvas"></canvas>
+        <div id="menu-content">
+
+            <!-- snake graphic -->
+            <canvas id="snake-graphic" width="200" height="60"></canvas>
+
+            <div id="menu-title">
+                <span class="m-letter">S</span>
+                <span class="m-letter">N</span>
+                <span class="m-letter">A</span>
+                <span class="m-letter">K</span>
+                <span class="m-letter">E</span>
+            </div>
+            <div id="menu-title2">
+                <span class="m-letter2">P</span>
+                <span class="m-letter2">O</span>
+                <span class="m-letter2">N</span>
+                <span class="m-letter2">G</span>
+            </div>
+
+            <div id="menu-best">Best Score: <span id="menu-high-score">0</span></div>
+
+            <!-- play button with graphic wrapper -->
+            <div id="play-btn-wrap">
+                <div id="play-btn-gfx">
+                    <span class="play-arrow"></span>
+                </div>
+                <button id="play-btn">PLAY</button>
+            </div>
+
+            <div id="menu-difficulty">
+                <span class="diff-label">Difficulty</span>
+                <div id="diff-btns">
+                    <button class="diff-btn" data-level="easy">Easy</button>
+                    <button class="diff-btn selected" data-level="medium">Medium</button>
+                    <button class="diff-btn" data-level="hard">Hard</button>
+                </div>
+            </div>
+
+            <div id="menu-sig">made by rch519</div>
+        </div>
+    </div>
+
+    <!-- GAME WRAPPER -->
+    <div id="game-wrapper" style="display:none;">
+
+        <div class="game-title">Snake Pong</div>
+
+        <div class="score-container">
+            <div>Score <span id="current-score">0</span></div>
+            <div>Best <span id="high-score">0</span></div>
+        </div>
+
+        <div class="controls">
+            <select id="difficulty-select">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <button id="pause-btn" class="btn-pause">Pause</button>
+            <button id="restart-btn-top" class="btn-restart">Restart</button>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="game-over" style="display:none;">
+            <h2>Game Over</h2>
+            <p class="go-score-line">Your score: <span id="go-final-score">0</span></p>
+            <button id="restart-btn">Play Again</button>
+            <button id="menu-btn">Main Menu</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('SW registered'))
+                    .catch(err => console.log('SW failed:', err));
+            });
+        }
+    </script>
+
+</body>
+</html>

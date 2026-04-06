@@ -1,0 +1,9 @@
+{
+  "appId": "com.rch519.snakepong",
+  "appName": "Snake Pong",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": true
+  }
+}

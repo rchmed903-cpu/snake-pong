@@ -1,0 +1,35 @@
+{
+  "name": "snake-pong",
+  "version": "1.0.0",
+  "description": "Snake Pong game by rch519",
+  "main": "electron.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win --publish never",
+    "build:android": "npx cap sync android"
+  },
+  "build": {
+    "appId": "com.rch519.snakepong",
+    "productName": "SnakePong",
+    "icon": "icons/icon-512.png",
+    "win": {
+      "target": "nsis",
+      "icon": "icons/icon-512.png"
+    },
+    "files": [
+      "**/*",
+      "!android/**",
+      "!node_modules/**",
+      "!.github/**"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "dependencies": {
+    "@capacitor/android": "^5.0.0",
+    "@capacitor/cli": "^5.0.0",
+    "@capacitor/core": "^5.0.0"
+  }
+}
