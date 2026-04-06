@@ -1,0 +1,98 @@
+name: Build Snake Pong
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Windows exe
+        run: npm run build:win
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Snake-Pong-Windows
+          path: dist/*.exe
+
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Sync Capacitor
+        run: npx cap sync android
+
+      - name: Build APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Upload Android artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Snake-Pong-Android
+          path: android/app/build/outputs/apk/debug/*.apk
+
+  release:
+    needs: [build-windows, build-android]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Windows build
+        uses: actions/download-artifact@v3
+        with:
+          name: Snake-Pong-Windows
+          path: dist-win
+
+      - name: Download Android build
+        uses: actions/download-artifact@v3
+        with:
+          name: Snake-Pong-Android
+          path: dist-android
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          name: Snake Pong v1.0.${{ github.run_number }}
+          body: |
+            ## Snake Pong by rch519
+
+            ### How to install
+            **Windows:** Download `.exe` and run it
+            **Android:** Download `.apk`, go to Settings → allow unknown sources → install
+
+          files: |
+            dist-win/*.exe
+            dist-android/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
